@@ -1,29 +1,54 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5f2ea;
-  --foreground: #1a1a1a;
-  --muted: #5a5a55;
-  --brand: #0f3d2e;
-  --brand-deep: #0a2a20;
-  --brand-light: #d4e4dc;
-  --brand-tint: #e8efe9;
-  --card: #ffffff;
-  --border: #e5e1d6;
+  /* ── Blues ── */
+  --navy:        #0D1F3C;
+  --blue:        #1A56DB;
+  --blue-mid:    #2563EB;
+  --blue-light:  #DBEAFE;
+  --blue-tint:   #EFF6FF;
+
+  /* ── Greys ── */
+  --slate-900:   #0F172A;
+  --slate-700:   #334155;
+  --slate-500:   #64748B;
+  --slate-300:   #CBD5E1;
+  --slate-100:   #F1F5F9;
+  --slate-50:    #F8FAFC;
+
+  /* ── Base ── */
+  --background:  #FFFFFF;
+  --foreground:  #0F172A;
+  --muted:       #64748B;
+  --border:      #E2E8F0;
+  --card:        #FFFFFF;
+
+  /* ── Accent ── */
+  --sky:         #0EA5E9;
+  --sky-tint:    #E0F2FE;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
-  --color-brand: var(--brand);
-  --color-brand-deep: var(--brand-deep);
-  --color-brand-light: var(--brand-light);
-  --color-brand-tint: var(--brand-tint);
-  --color-card: var(--card);
-  --color-border-subtle: var(--border);
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-fraunces);
+  --color-navy:        var(--navy);
+  --color-blue:        var(--blue);
+  --color-blue-mid:    var(--blue-mid);
+  --color-blue-light:  var(--blue-light);
+  --color-blue-tint:   var(--blue-tint);
+  --color-slate-900:   var(--slate-900);
+  --color-slate-700:   var(--slate-700);
+  --color-slate-500:   var(--slate-500);
+  --color-slate-300:   var(--slate-300);
+  --color-slate-100:   var(--slate-100);
+  --color-slate-50:    var(--slate-50);
+  --color-background:  var(--background);
+  --color-foreground:  var(--foreground);
+  --color-muted:       var(--muted);
+  --color-border:      var(--border);
+  --color-card:        var(--card);
+  --color-sky:         var(--sky);
+  --color-sky-tint:    var(--sky-tint);
+  --font-sans:         var(--font-space-grotesk);
+  --font-body:         var(--font-inter);
 }
 
 html,
@@ -38,7 +63,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.font-serif {
-  font-family: var(--font-fraunces), Georgia, serif;
-  font-feature-settings: "ss01", "liga";
+h1, h2, h3, h4 {
+  font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.02em;
 }

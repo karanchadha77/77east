@@ -3,21 +3,25 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue/40 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         primary:
-          "bg-brand text-white hover:bg-brand-deep shadow-sm",
+          "bg-blue text-white hover:bg-blue-mid shadow-sm hover:shadow-md",
         outline:
-          "border border-foreground/20 bg-transparent text-foreground hover:bg-foreground/5",
-        ghost: "bg-transparent text-foreground hover:bg-foreground/5",
-        link: "text-brand underline-offset-4 hover:underline p-0 h-auto",
+          "border-2 border-blue text-blue bg-transparent hover:bg-blue hover:text-white",
+        ghost:
+          "bg-transparent text-foreground hover:bg-slate-100",
+        white:
+          "bg-white text-navy hover:bg-slate-100 shadow-sm",
+        "outline-white":
+          "border-2 border-white/60 text-white bg-transparent hover:bg-white hover:text-navy",
       },
       size: {
-        sm: "h-9 px-4",
-        md: "h-11 px-5",
-        lg: "h-12 px-6 text-[0.95rem]",
+        sm: "h-9 px-4 text-sm",
+        md: "h-11 px-5 text-sm",
+        lg: "h-12 px-7 text-[0.9375rem]",
       },
     },
     defaultVariants: {
@@ -29,9 +33,7 @@ const buttonVariants = cva(
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
-  asChild?: boolean;
-}
+    VariantProps<typeof buttonVariants> {}
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, ...props }, ref) => (

@@ -5,8 +5,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+type Tag = "CORE" | "FREIGHT-SPECIFIC" | "ONGOING";
+
 type Service = {
-  tag: "CORE" | "FREIGHT-SPECIFIC" | "ONGOING";
+  tag: Tag;
   title: string;
   bullets: string[];
 };
@@ -64,70 +66,76 @@ const services: Service[] = [
   },
 ];
 
-const tagColor: Record<Service["tag"], string> = {
-  CORE: "bg-brand-tint text-brand",
-  "FREIGHT-SPECIFIC": "bg-amber-100/70 text-amber-900",
-  ONGOING: "bg-slate-200/60 text-slate-700",
+const tagStyles: Record<Tag, string> = {
+  "CORE": "bg-blue-tint text-blue",
+  "FREIGHT-SPECIFIC": "bg-sky-tint text-sky",
+  "ONGOING": "bg-slate-100 text-slate-500",
 };
 
 export function Services() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="w-full py-24 md:py-32 border-t border-border-subtle">
+    <section id="services" className="w-full py-24 md:py-32 bg-white scroll-mt-20">
       <div className="mx-auto max-w-6xl px-6 md:px-10">
-        <p className="text-[11px] font-medium tracking-[0.18em] uppercase text-muted">
-          What We Do
-        </p>
-        <h2 className="font-serif mt-4 text-4xl md:text-5xl leading-[1.05] tracking-tight text-foreground">
-          Controller services built for{" "}
-          <em className="italic text-brand font-normal">freight</em>
-        </h2>
-        <p className="mt-5 max-w-2xl text-[1rem] text-muted leading-relaxed">
-          Not generic bookkeeping. Not a US firm charging CFO rates for accounting work.
-          A dedicated team that understands factoring, TMS reconciliation, and multi-entity
-          freight operations.
-        </p>
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="inline-block rounded-full bg-blue-tint px-4 py-1.5 text-xs font-semibold tracking-widest text-blue uppercase">
+            What We Do
+          </span>
+          <h2 className="mt-4 text-4xl md:text-5xl font-bold text-navy leading-tight">
+            Controller services built{" "}
+            <span className="text-blue">for freight</span>
+          </h2>
+          <p className="mt-5 text-[1.0625rem] text-muted leading-relaxed">
+            Not generic bookkeeping. A dedicated team that understands factoring, TMS
+            reconciliation, and multi-entity freight operations.
+          </p>
+        </div>
 
-        <div className="mt-14 space-y-3">
+        <div className="mt-14 space-y-2.5">
           {services.map((s, i) => {
             const isOpen = open === i;
             return (
               <motion.div
                 key={s.title}
                 layout
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.4, delay: i * 0.04 }}
+                transition={{ duration: 0.35, delay: i * 0.04 }}
                 className={cn(
-                  "rounded-xl border transition-colors",
+                  "rounded-xl border transition-all duration-200",
                   isOpen
-                    ? "bg-brand-tint border-brand/30"
-                    : "bg-card border-border-subtle hover:border-foreground/20"
+                    ? "bg-navy border-navy shadow-lg"
+                    : "bg-white border-border hover:border-blue/30 hover:shadow-sm"
                 )}
               >
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between gap-4 px-6 md:px-7 py-5 text-left"
+                  className="flex w-full items-center justify-between gap-4 px-6 md:px-8 py-5 text-left"
                 >
                   <div className="flex items-center gap-4 min-w-0">
                     <span
                       className={cn(
-                        "rounded-md px-2 py-1 text-[10px] font-semibold tracking-[0.12em]",
-                        tagColor[s.tag]
+                        "shrink-0 rounded-md px-2.5 py-1 text-[10px] font-bold tracking-widest uppercase",
+                        isOpen ? "bg-white/10 text-white/80" : tagStyles[s.tag]
                       )}
                     >
                       {s.tag}
                     </span>
-                    <span className="font-serif text-lg md:text-xl text-foreground truncate">
+                    <span
+                      className={cn(
+                        "text-lg font-semibold truncate",
+                        isOpen ? "text-white" : "text-navy"
+                      )}
+                    >
                       {s.title}
                     </span>
                   </div>
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.25 }}
-                    className="text-muted shrink-0"
+                    className={cn("shrink-0", isOpen ? "text-white/60" : "text-muted")}
                   >
                     <ChevronDown className="size-5" />
                   </motion.div>
@@ -140,16 +148,13 @@ export function Services() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                      transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
                       className="overflow-hidden"
                     >
-                      <ul className="px-6 md:px-7 pb-6 pt-1 space-y-2">
+                      <ul className="px-6 md:px-8 pb-7 pt-1 space-y-2.5">
                         {s.bullets.map((b) => (
-                          <li
-                            key={b}
-                            className="flex gap-3 text-[0.9375rem] text-foreground/80 leading-relaxed"
-                          >
-                            <span className="mt-[0.6rem] inline-block size-1 shrink-0 rounded-full bg-brand" />
+                          <li key={b} className="flex gap-3 text-[0.9375rem] text-white/75 leading-relaxed">
+                            <span className="mt-[0.55rem] inline-block size-1.5 shrink-0 rounded-full bg-sky" />
                             {b}
                           </li>
                         ))}

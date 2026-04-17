@@ -1,80 +1,149 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 16 },
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 20 },
   show: (i: number = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: 0.1 + i * 0.08, ease: [0.22, 1, 0.36, 1] },
+    transition: {
+      duration: 0.65,
+      delay: 0.1 + i * 0.09,
+      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+    },
   }),
 };
 
+const stats = [
+  { value: "$5M–$25M", label: "Freight operator sweet spot" },
+  { value: "Day 10",   label: "Monthly close target" },
+  { value: "40–60%",   label: "vs. a full-time US controller" },
+];
+
 export function Hero() {
   return (
-    <section className="w-full pt-20 pb-24 md:pt-28 md:pb-32">
-      <div className="mx-auto max-w-6xl px-6 md:px-10">
-        <motion.p
+    <section className="relative min-h-[92vh] flex flex-col justify-center overflow-hidden bg-navy">
+      {/* Grid pattern overlay */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.06]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
+      {/* Radial glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(37,99,235,0.35) 0%, transparent 70%)",
+        }}
+      />
+
+      <div className="relative mx-auto w-full max-w-6xl px-6 md:px-10 pt-36 pb-20">
+        {/* Badge */}
+        <motion.div
           initial="hidden"
           animate="show"
           custom={0}
           variants={fadeUp}
-          className="text-[11px] font-medium tracking-[0.18em] uppercase text-muted"
+          className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-widest text-sky uppercase backdrop-blur-sm"
         >
-          — Fractional Controller Services &middot; US Freight &amp; Trucking
-        </motion.p>
+          <span className="size-1.5 rounded-full bg-sky animate-pulse" />
+          Fractional Controller Services · US Freight &amp; Trucking
+        </motion.div>
+
+        {/* Headline */}
         <motion.h1
           initial="hidden"
           animate="show"
           custom={1}
           variants={fadeUp}
-          className="font-serif mt-6 max-w-3xl text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-foreground"
+          className="mt-8 max-w-4xl text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.0] tracking-tight text-white"
         >
-          Your books, <em className="italic text-brand font-normal">closed clean.</em>
+          Your books,{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky to-blue-light">
+            closed clean.
+          </span>
           <br />
           Every month.
         </motion.h1>
+
+        {/* Sub */}
         <motion.p
           initial="hidden"
           animate="show"
           custom={2}
           variants={fadeUp}
-          className="mt-8 max-w-xl text-[1.0625rem] leading-relaxed text-muted"
+          className="mt-7 max-w-2xl text-lg leading-relaxed text-white/65"
         >
           77 East Advisory embeds as your back-office controller — handling QuickBooks
           cleanup, monthly close, and cash flow visibility for asset carriers, FTL
           brokerages, and agency operations. At a fraction of what you&rsquo;re paying today.
         </motion.p>
+
+        {/* CTAs */}
         <motion.div
           initial="hidden"
           animate="show"
           custom={3}
           variants={fadeUp}
-          className="mt-10 flex flex-wrap items-center gap-6"
+          className="mt-10 flex flex-wrap items-center gap-4"
         >
           <Button
+            variant="white"
             size="lg"
-            variant="primary"
             onClick={() =>
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
             }
           >
             Book a free scope call
           </Button>
-          <button
+          <Button
+            variant="outline-white"
+            size="lg"
             onClick={() =>
               document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" })
             }
-            className="group inline-flex items-center gap-1.5 text-sm font-medium text-foreground underline underline-offset-4 decoration-foreground/30 hover:decoration-foreground transition-colors"
           >
-            See how it works
-            <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-          </button>
+            How it works <ArrowRight className="size-4" />
+          </Button>
+        </motion.div>
+
+        {/* Stats bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.55 }}
+          className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-px rounded-2xl overflow-hidden border border-white/10"
+        >
+          {stats.map((s) => (
+            <div
+              key={s.value}
+              className="bg-white/5 backdrop-blur-sm px-8 py-5 text-center sm:text-left"
+            >
+              <div className="text-2xl font-bold text-white">{s.value}</div>
+              <div className="mt-0.5 text-sm text-white/55">{s.label}</div>
+            </div>
+          ))}
         </motion.div>
       </div>
+
+      {/* Scroll cue */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/30"
+      >
+        <ChevronDown className="size-5 animate-bounce" />
+      </motion.div>
     </section>
   );
 }
