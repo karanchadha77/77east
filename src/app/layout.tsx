@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Lora } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,17 +8,18 @@ const inter = Inter({
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const lora = Lora({
+  variable: "--font-lora",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  style: ["italic"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
   title: "77 East Advisory — Fractional controller services for US freight",
   description:
-    "77 East Advisory embeds as your back-office controller — handling QuickBooks cleanup, monthly close, and cash flow visibility for asset carriers, FTL brokerages, and agency operations.",
+    "Senior financial expertise for US freight and trucking businesses between $5M and $75M — monthly close, compliance, and long-term financial strategy, at a fraction of full-time US cost.",
 };
 
 export default function RootLayout({
@@ -27,11 +28,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+    <html lang="en" className={`${inter.variable} ${lora.variable} h-full`}>
+      <body className="min-h-full flex flex-col bg-bg text-fg antialiased" suppressHydrationWarning>
         {children}
       </body>
     </html>

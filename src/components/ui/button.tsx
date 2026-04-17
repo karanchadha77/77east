@@ -3,31 +3,22 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue/40 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/20 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        primary:
-          "bg-blue text-white hover:bg-blue-mid shadow-sm hover:shadow-md",
-        outline:
-          "border-2 border-blue text-blue bg-transparent hover:bg-blue hover:text-white",
-        ghost:
-          "bg-transparent text-foreground hover:bg-slate-100",
-        white:
-          "bg-white text-navy hover:bg-slate-100 shadow-sm",
-        "outline-white":
-          "border-2 border-white/60 text-white bg-transparent hover:bg-white hover:text-navy",
+        primary: "bg-btn text-white hover:bg-btn-hover shadow-sm",
+        outline: "border border-border text-fg bg-transparent hover:bg-tab-active",
+        ghost:   "bg-transparent text-fg hover:bg-tab-active",
+        link:    "text-fg underline underline-offset-4 decoration-fg/30 hover:decoration-fg p-0 h-auto font-normal",
       },
       size: {
         sm: "h-9 px-4 text-sm",
-        md: "h-11 px-5 text-sm",
-        lg: "h-12 px-7 text-[0.9375rem]",
+        md: "h-10 px-5 text-sm",
+        lg: "h-11 px-6 text-[0.9375rem]",
       },
     },
-    defaultVariants: {
-      variant: "primary",
-      size: "md",
-    },
+    defaultVariants: { variant: "primary", size: "md" },
   }
 );
 
@@ -37,13 +28,8 @@ export interface ButtonProps
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, ...props }, ref) => (
-    <button
-      ref={ref}
-      className={cn(buttonVariants({ variant, size }), className)}
-      {...props}
-    />
+    <button ref={ref} className={cn(buttonVariants({ variant, size }), className)} {...props} />
   )
 );
 Button.displayName = "Button";
-
 export { buttonVariants };

@@ -1,69 +1,100 @@
 @import "tailwindcss";
 
 :root {
-  /* ── Blues ── */
-  --navy:        #0D1F3C;
-  --blue:        #1A56DB;
-  --blue-mid:    #2563EB;
-  --blue-light:  #DBEAFE;
-  --blue-tint:   #EFF6FF;
+  /* ─── Shades of Blue ─── */
+  --blue-50:   #eff6ff;
+  --blue-100:  #dbeafe;
+  --blue-200:  #bfdbfe;
+  --blue-500:  #3b82f6;
+  --blue-700:  #1d4ed8;
+  --blue-900:  #1e3a8a;
+  --navy:      #0a1628;
+  --navy-mid:  #1e293b;
 
-  /* ── Greys ── */
-  --slate-900:   #0F172A;
-  --slate-700:   #334155;
-  --slate-500:   #64748B;
-  --slate-300:   #CBD5E1;
-  --slate-100:   #F1F5F9;
-  --slate-50:    #F8FAFC;
+  /* ─── Shades of Grey ─── */
+  --grey-50:   #f8fafc;
+  --grey-100:  #f1f5f9;
+  --grey-200:  #e2e8f0;
+  --grey-300:  #cbd5e1;
+  --grey-400:  #94a3b8;
+  --grey-500:  #64748b;
+  --grey-600:  #475569;
+  --grey-700:  #334155;
+  --grey-900:  #0f172a;
 
-  /* ── Base ── */
-  --background:  #FFFFFF;
-  --foreground:  #0F172A;
-  --muted:       #64748B;
-  --border:      #E2E8F0;
-  --card:        #FFFFFF;
-
-  /* ── Accent ── */
-  --sky:         #0EA5E9;
-  --sky-tint:    #E0F2FE;
+  /* ─── Semantic ─── */
+  --bg:          #f5f7fa;
+  --bg-card:     #ffffff;
+  --bg-dark:     #0a1628;
+  --fg:          #0a0e1a;
+  --fg-muted:    #64748b;
+  --border:      #e2e8f0;
+  --border-dark: #1e293b;
+  --btn:         #0a0e1a;
+  --btn-hover:   #1e293b;
+  --tab-active:  #eef2f7;
+  --accent:      #1e3a8a;
 }
 
 @theme inline {
-  --color-navy:        var(--navy);
-  --color-blue:        var(--blue);
-  --color-blue-mid:    var(--blue-mid);
-  --color-blue-light:  var(--blue-light);
-  --color-blue-tint:   var(--blue-tint);
-  --color-slate-900:   var(--slate-900);
-  --color-slate-700:   var(--slate-700);
-  --color-slate-500:   var(--slate-500);
-  --color-slate-300:   var(--slate-300);
-  --color-slate-100:   var(--slate-100);
-  --color-slate-50:    var(--slate-50);
-  --color-background:  var(--background);
-  --color-foreground:  var(--foreground);
-  --color-muted:       var(--muted);
+  --color-blue-50:   var(--blue-50);
+  --color-blue-100:  var(--blue-100);
+  --color-blue-200:  var(--blue-200);
+  --color-blue-500:  var(--blue-500);
+  --color-blue-700:  var(--blue-700);
+  --color-blue-900:  var(--blue-900);
+  --color-navy:      var(--navy);
+  --color-navy-mid:  var(--navy-mid);
+
+  --color-grey-50:   var(--grey-50);
+  --color-grey-100:  var(--grey-100);
+  --color-grey-200:  var(--grey-200);
+  --color-grey-300:  var(--grey-300);
+  --color-grey-400:  var(--grey-400);
+  --color-grey-500:  var(--grey-500);
+  --color-grey-600:  var(--grey-600);
+  --color-grey-700:  var(--grey-700);
+  --color-grey-900:  var(--grey-900);
+
+  --color-bg:          var(--bg);
+  --color-bg-card:     var(--bg-card);
+  --color-bg-dark:     var(--bg-dark);
+  --color-fg:          var(--fg);
+  --color-fg-muted:    var(--fg-muted);
   --color-border:      var(--border);
-  --color-card:        var(--card);
-  --color-sky:         var(--sky);
-  --color-sky-tint:    var(--sky-tint);
-  --font-sans:         var(--font-space-grotesk);
-  --font-body:         var(--font-inter);
+  --color-border-dark: var(--border-dark);
+  --color-btn:         var(--btn);
+  --color-btn-hover:   var(--btn-hover);
+  --color-tab-active:  var(--tab-active);
+  --color-accent:      var(--accent);
+
+  --font-sans:  var(--font-inter);
+  --font-serif: var(--font-lora);
 }
 
-html,
-body {
-  background: var(--background);
-  color: var(--foreground);
+/* ─── Atmospheric gradient background ─── */
+html {
+  background:
+    radial-gradient(ellipse 70% 45% at 15% 0%,   rgba(147, 197, 253, 0.20), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 25%, rgba(191, 219, 254, 0.22), transparent 65%),
+    radial-gradient(ellipse 80% 40% at 50% 100%, rgba(148, 163, 184, 0.18), transparent 60%),
+    linear-gradient(180deg, #eef3fa 0%, #f5f7fa 30%, #f8fafc 60%, #eef2f7 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
 body {
+  background: transparent;
+  color: var(--fg);
   font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
-  letter-spacing: -0.02em;
+/* Serif italic emphasis → blue-900 for an editorial accent */
+em {
+  font-family: var(--font-lora), Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent);
 }

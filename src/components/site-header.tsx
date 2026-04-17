@@ -8,68 +8,48 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const nav = [
-  { href: "#services",      label: "Services" },
-  { href: "#how-it-works",  label: "How it works" },
-  { href: "#faq",           label: "FAQ" },
-  { href: "#contact",       label: "Contact" },
+  { href: "#why-us",       label: "Why 77 East" },
+  { href: "#services",     label: "Services" },
+  { href: "#how-it-works", label: "How we work" },
+  { href: "#contact",      label: "Contact" },
 ];
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const fn = () => setScrolled(window.scrollY > 8);
+    window.addEventListener("scroll", fn, { passive: true });
+    return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  const scrollTo = (id: string) => {
-    setMobileOpen(false);
+  const go = (id: string) => {
+    setOpen(false);
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <>
-      <motion.header
-        initial={{ opacity: 0, y: -12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45, ease: "easeOut" }}
+      <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          scrolled
-            ? "bg-white/95 backdrop-blur-sm border-b border-border shadow-sm"
-            : "bg-transparent"
+          "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+          scrolled ? "bg-white/70 backdrop-blur-lg border-b border-border/60" : "bg-transparent"
         )}
       >
-        <div className="mx-auto flex h-[72px] max-w-6xl items-center justify-between px-6 md:px-10">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="flex size-8 items-center justify-center rounded-md bg-blue text-white text-xs font-bold tracking-tight">
-              77
-            </div>
-            <span
-              className={cn(
-                "text-[1.0625rem] font-bold tracking-tight transition-colors",
-                scrolled ? "text-navy" : "text-white"
-              )}
-            >
-              East Advisory
+        <div className="mx-auto flex h-[68px] max-w-5xl items-center justify-between px-6 md:px-10">
+          <Link href="/" className="flex items-center gap-2">
+            <span className="text-[1.0625rem] font-bold tracking-tight text-fg">
+              77 East Advisory
             </span>
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-7">
+          <nav className="hidden md:flex items-center gap-8">
             {nav.map((n) => (
               <button
                 key={n.href}
-                onClick={() => scrollTo(n.href)}
-                className={cn(
-                  "text-sm font-medium transition-colors",
-                  scrolled
-                    ? "text-slate-500 hover:text-foreground"
-                    : "text-white/80 hover:text-white"
-                )}
+                onClick={() => go(n.href)}
+                className="text-sm text-fg-muted hover:text-fg transition-colors"
               >
                 {n.label}
               </button>
@@ -77,43 +57,35 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <Button
-              variant={scrolled ? "primary" : "white"}
-              size="sm"
-              onClick={() => scrollTo("#contact")}
-            >
+            <Button size="sm" onClick={() => go("#contact")}>
               Book a call
             </Button>
             <button
-              className={cn(
-                "md:hidden p-1.5 rounded transition-colors",
-                scrolled ? "text-foreground" : "text-white"
-              )}
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Toggle menu"
+              className="md:hidden p-1 text-fg"
+              onClick={() => setOpen(!open)}
+              aria-label="Menu"
             >
-              {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+              {open ? <X className="size-5" /> : <Menu className="size-5" />}
             </button>
           </div>
         </div>
-      </motion.header>
+      </header>
 
-      {/* Mobile menu */}
       <AnimatePresence>
-        {mobileOpen && (
+        {open && (
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
+            initial={{ opacity: 0, y: -6 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2 }}
-            className="fixed top-[72px] inset-x-0 z-40 bg-white border-b border-border shadow-lg md:hidden"
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.18 }}
+            className="fixed top-[68px] inset-x-0 z-40 bg-white/95 backdrop-blur-lg border-b border-border md:hidden"
           >
-            <nav className="flex flex-col px-6 py-4 gap-1">
+            <nav className="flex flex-col px-6 py-3 divide-y divide-border">
               {nav.map((n) => (
                 <button
                   key={n.href}
-                  onClick={() => scrollTo(n.href)}
-                  className="text-left py-3 text-[0.9375rem] font-medium text-slate-700 hover:text-blue border-b border-border last:border-0 transition-colors"
+                  onClick={() => go(n.href)}
+                  className="py-3.5 text-left text-[0.9375rem] font-medium text-fg hover:text-fg-muted transition-colors"
                 >
                   {n.label}
                 </button>
