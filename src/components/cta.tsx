@@ -14,12 +14,35 @@ const bullets = [
 ];
 
 export function Cta() {
-  const [status, setStatus] = useState<"idle" | "loading" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "sent" | "error">("idle");
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("loading");
-    setTimeout(() => setStatus("sent"), 900);
+
+    const fd = new FormData(e.currentTarget);
+    const payload = {
+      first:     fd.get("first"),
+      last:      fd.get("last"),
+      email:     fd.get("email"),
+      company:   fd.get("company"),
+      revenue:   fd.get("revenue"),
+      type:      fd.get("type"),
+      challenge: fd.get("challenge"),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error("Request failed");
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -55,7 +78,26 @@ export function Cta() {
           {/* Right — form */}
           <div className="lg:col-span-3">
             <AnimatePresence mode="wait">
-              {status === "sent" ? (
+              {status === "error" ? (
+                <motion.div
+                  key="error"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="rounded-lg border border-red-200 bg-red-50 px-5 py-4 text-sm text-red-700"
+                >
+                  Something went wrong sending your message. Please email us directly at{" "}
+                  <a href="mailto:karansingh55@live.com" className="font-medium underline">
+                    karansingh55@live.com
+                  </a>{" "}
+                  and we&rsquo;ll get back to you within 24 hours.
+                  <button
+                    onClick={() => setStatus("idle")}
+                    className="mt-3 block text-xs font-medium underline text-red-600"
+                  >
+                    Try again
+                  </button>
+                </motion.div>
+              ) : status === "sent" ? (
                 <motion.div
                   key="sent"
                   initial={{ opacity: 0, y: 8 }}
