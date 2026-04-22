@@ -13,8 +13,8 @@ export async function POST(req: NextRequest) {
     }
 
     const { error } = await resend.emails.send({
-      from: "74 East Advisory <onboarding@resend.dev>",
-      to: "karansingh55@live.com",
+      from: "74 East Advisory <noreply@74east.com>",
+      to: "karan@74east.com",
       replyTo: email,
       subject: `New scope call request — ${first} ${last} at ${company}`,
       html: `
@@ -79,7 +79,7 @@ export async function POST(req: NextRequest) {
             </table>
 
             <div style="margin-top: 28px; padding-top: 20px; border-top: 1px solid #f1f5f9;">
-              <a href="mailto:${email}?subject=Re: Your 74 East Advisory scope call request"
+              <a href="mailto:${email}?subject=Re: Your 74 East Advisory scope call request&from=karan@74east.com"
                  style="display: inline-block; background: #0a1628; color: #ffffff; padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none;">
                 Reply to ${first}
               </a>

@@ -85,8 +85,8 @@ export function Cta() {
                   className="rounded-lg border border-red-200 bg-red-50 px-5 py-4 text-sm text-red-700"
                 >
                   Something went wrong sending your message. Please email us directly at{" "}
-                  <a href="mailto:karansingh55@live.com" className="font-medium underline">
-                    karansingh55@live.com
+                  <a href="mailto:karan@74east.com" className="font-medium underline">
+                    karan@74east.com
                   </a>{" "}
                   and we&rsquo;ll get back to you within 24 hours.
                   <button
