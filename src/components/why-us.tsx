@@ -26,7 +26,7 @@ export function WhyUs() {
     <section id="why-us" className="w-full py-24 md:py-32 border-t border-border scroll-mt-20">
       <div className="mx-auto max-w-5xl px-6 md:px-10">
         <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-fg-muted">
-          Why 77 East
+          Why 74 East
         </p>
         <h2 className="mt-4 max-w-2xl text-4xl md:text-5xl font-bold leading-tight tracking-tight text-fg">
           We only work with{" "}

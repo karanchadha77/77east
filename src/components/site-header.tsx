@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const nav = [
-  { href: "#why-us",       label: "Why 77 East" },
+  { href: "#why-us",       label: "Why 74 East" },
   { href: "#services",     label: "Services" },
   { href: "#how-it-works", label: "How we work" },
   { href: "#contact",      label: "Contact" },
@@ -40,7 +40,7 @@ export function SiteHeader() {
         <div className="mx-auto flex h-[68px] max-w-5xl items-center justify-between px-6 md:px-10">
           <Link href="/" className="flex items-center gap-2">
             <span className="text-[1.0625rem] font-bold tracking-tight text-fg">
-              77 East Advisory
+              74 East Advisory
             </span>
           </Link>
 
