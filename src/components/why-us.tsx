@@ -5,19 +5,19 @@ import { motion } from "framer-motion";
 const cards = [
   {
     title: "Freight-native expertise",
-    body: "We understand factoring reconciliation, TMS-to-QB matching, load margin analysis, IFTA obligations, and multi-entity carrier structure. You won't spend time explaining your business to us.",
+    body: "Factoring reconciliation, TMS-to-ERP matching, load and lane margin analysis, multi-entity carrier structure and carrier settlement. You won't spend time explaining your business to us.",
   },
   {
     title: "A dedicated team per engagement",
     body: "Every client gets a named senior lead and a supporting analyst team. Not a solo contractor. A structured, accountable team with defined roles — junior analyst, senior controller, client lead.",
   },
   {
-    title: "Senior quality at a fraction of US cost",
-    body: "Based in New Delhi — 77 East — we deliver the same calibre of financial oversight as a US-based fractional controller, at 30–50% lower cost. The savings are real. The quality is non-compromised.",
+    title: "Senior expertise, structured as a fraction",
+    body: "The calibre of oversight you'd get from a senior in-house controller — delivered as a fractional engagement, scaled to the scope your business actually needs. You pay for a defined function, not a full-time seat.",
   },
   {
     title: "Process-first, not reactive",
-    body: "Every engagement runs on a defined cadence — daily transaction review, weekly cost reporting, Day 10 monthly close. Documented, repeatable, and built so you always know what's happening with your money.",
+    body: "Every engagement runs on a defined cadence — daily transaction review, weekly operating reports, Day 10 monthly close, quarterly board package. Documented, repeatable, and auditable — so you always know where you stand.",
   },
 ];
 
@@ -30,11 +30,12 @@ export function WhyUs() {
         </p>
         <h2 className="mt-4 max-w-2xl text-4xl md:text-5xl font-bold leading-tight tracking-tight text-fg">
           We only work with{" "}
-          <em className="font-medium">freight &amp; trucking.</em>
+          <em className="font-medium">freight &amp; logistics.</em>
         </h2>
         <p className="mt-5 max-w-xl text-[1.0625rem] leading-relaxed text-fg-muted">
-          Most controller firms treat trucking like any other client. We built our entire
-          practice around it — which means we already know what your books should look
+          Most controller firms treat freight as just another vertical. We built our
+          entire practice around it — asset-based carriers, 3PLs, brokerages, and
+          dispatch agencies — which means we already know what your books should look
           like before we open them.
         </p>
 

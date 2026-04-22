@@ -139,12 +139,13 @@ export function Services() {
           What we do
         </p>
         <h2 className="mt-4 max-w-2xl text-4xl md:text-5xl font-bold leading-tight tracking-tight text-fg">
-          Full-scope controller services,{" "}
-          <em className="font-medium">freight-specific</em>
+          Full-scope controller and advisory function,{" "}
+          <em className="font-medium">freight-specific.</em>
         </h2>
         <p className="mt-5 max-w-xl text-[1.0625rem] leading-relaxed text-fg-muted">
-          From keeping the books clean to advising on long-term financial strategy — we
-          cover the entire controller function so you don&rsquo;t have to.
+          From monthly close and compliance through board reporting and long-term
+          financial strategy — we cover the entire controller function, so your
+          leadership team doesn&rsquo;t have to.
         </p>
 
         <div className="mt-12 space-y-8">

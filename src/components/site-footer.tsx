@@ -6,7 +6,7 @@ export function SiteFooter() {
           77 East Advisory
         </span>
         <p className="text-sm text-fg-muted">
-          &copy; {new Date().getFullYear()} 77 East Advisory &middot; New Delhi &middot; Serving US freight operators
+          &copy; {new Date().getFullYear()} 77 East Advisory &middot; New Delhi, India &middot; Serving US freight &amp; logistics operators
         </p>
       </div>
     </footer>

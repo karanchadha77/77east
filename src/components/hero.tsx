@@ -18,27 +18,26 @@ export function Hero() {
           {...up(0.05)}
           className="text-[11px] font-semibold tracking-[0.2em] uppercase text-fg-muted"
         >
-          — Fractional Controller Services &middot; US Freight &amp; Trucking
+          — Fractional Controller &amp; Advisory Services &middot; US Freight &amp; Logistics
         </motion.p>
 
         <motion.h1
           {...up(0.12)}
           className="mt-6 max-w-3xl text-[2.75rem] sm:text-5xl md:text-6xl font-bold leading-[1.04] tracking-tight text-fg"
         >
-          The controller team
-          <br />
-          built for{" "}
-          <em className="font-medium">freight operators.</em>
+          The controller team built for{" "}
+          <em className="font-medium">serious freight operators.</em>
         </motion.h1>
 
         <motion.p
           {...up(0.2)}
           className="mt-7 max-w-xl text-[1.0625rem] leading-relaxed text-fg-muted"
         >
-          77 East Advisory provides fractional controller services exclusively to US
-          freight and trucking businesses between $5M and $75M — handling everything
-          from monthly close and compliance to long-term financial strategy. Senior
-          expertise, without the full-time overhead.
+          We provide fractional controller and financial advisory services to US
+          asset-based truckload carriers, 3PLs, brokerages, and dispatch agencies from
+          $10M in revenue and up. From monthly close and compliance to board-ready
+          reporting and long-term financial strategy — delivered by a senior team,
+          structured as a fractional engagement.
         </motion.p>
 
         <motion.div {...up(0.28)} className="mt-9 flex flex-wrap items-center gap-5">

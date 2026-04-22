@@ -8,9 +8,8 @@ import { Input, Textarea, Select } from "@/components/ui/input";
 
 const bullets = [
   "No commitment required",
-  "Response within 24 hours",
-  "Based in New Delhi — Serving US freight operators",
-  "Fully remote. US business hours available.",
+  "Response within one business day",
+  "Confidentiality guaranteed pre-engagement",
 ];
 
 export function Cta() {
@@ -56,12 +55,12 @@ export function Cta() {
             </p>
             <h2 className="mt-4 text-4xl md:text-5xl font-bold leading-tight tracking-tight text-fg">
               Let&rsquo;s talk about{" "}
-              <em className="font-medium">your books.</em>
+              <em className="font-medium">your finance function.</em>
             </h2>
             <p className="mt-5 text-[1rem] leading-relaxed text-fg-muted">
-              A free 30-minute scope call is how every engagement starts. We&rsquo;ll look at your
-              current financial operations, tell you honestly whether we&rsquo;re a fit, and
-              outline what Month 1 looks like for your operation.
+              Every engagement starts with a scope call. We&rsquo;ll review your current
+              financial operations, tell you honestly whether we&rsquo;re the right fit,
+              and outline what the first 90 days look like for your business.
             </p>
             <ul className="mt-8 space-y-3">
               {bullets.map((b) => (
@@ -150,19 +149,18 @@ export function Cta() {
                     <Field label="Annual revenue">
                       <Select name="revenue" defaultValue="">
                         <option value="" disabled>Select range</option>
-                        <option>Under $5M</option>
-                        <option>$5M – $10M</option>
                         <option>$10M – $25M</option>
                         <option>$25M – $75M</option>
-                        <option>Over $75M</option>
+                        <option>$75M – $150M</option>
+                        <option>$150M+</option>
                       </Select>
                     </Field>
                     <Field label="Revenue type">
                       <Select name="type" defaultValue="">
                         <option value="" disabled>Select type</option>
-                        <option>Asset carrier (OTR/regional)</option>
-                        <option>FTL brokerage</option>
-                        <option>Agency / dispatch</option>
+                        <option>Asset-based truckload carrier</option>
+                        <option>3PL / freight brokerage</option>
+                        <option>Dispatch or agency</option>
                         <option>Multi-entity (mixed)</option>
                       </Select>
                     </Field>
