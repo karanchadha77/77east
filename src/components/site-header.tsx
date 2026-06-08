@@ -37,17 +37,12 @@ export function SiteHeader() {
           scrolled ? "bg-white/70 backdrop-blur-lg border-b border-border/60" : "bg-transparent"
         )}
       >
-        <div className="mx-auto flex h-[68px] max-w-5xl items-center justify-between px-6 md:px-10">
-          <Link href="/" className="flex flex-col leading-none">
-            <span className="text-[1.0625rem] font-bold tracking-tight text-fg">
-              74 East Advisory
-            </span>
-            <span className="hidden sm:block mt-1 text-[10px] tracking-[0.12em] uppercase text-fg-muted">
-              Finance &amp; Accounting Partner &middot; Growth-Focused Businesses
-            </span>
+        <div className="relative mx-auto flex h-[68px] max-w-5xl items-center justify-between px-6 md:px-10">
+          <Link href="/" className="text-[1.0625rem] font-bold tracking-tight text-fg">
+            74 East Advisory
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-9 absolute left-1/2 -translate-x-1/2">
             {nav.map((n) => (
               <button
                 key={n.href}
@@ -60,7 +55,11 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <Button size="sm" onClick={() => go("#contact")}>
+            <Button
+              size="sm"
+              className="hidden md:inline-flex"
+              onClick={() => go("#contact")}
+            >
               Talk to our team
             </Button>
             <button
@@ -83,16 +82,25 @@ export function SiteHeader() {
             transition={{ duration: 0.18 }}
             className="fixed top-[68px] inset-x-0 z-40 bg-white/95 backdrop-blur-lg border-b border-border md:hidden"
           >
-            <nav className="flex flex-col px-6 py-3 divide-y divide-border">
-              {nav.map((n) => (
-                <button
-                  key={n.href}
-                  onClick={() => go(n.href)}
-                  className="py-3.5 text-left text-[0.9375rem] font-medium text-fg hover:text-fg-muted transition-colors"
-                >
-                  {n.label}
-                </button>
-              ))}
+            <nav className="flex flex-col px-6 py-3">
+              <div className="flex flex-col divide-y divide-border">
+                {nav.map((n) => (
+                  <button
+                    key={n.href}
+                    onClick={() => go(n.href)}
+                    className="py-3.5 text-left text-[0.9375rem] font-medium text-fg hover:text-fg-muted transition-colors"
+                  >
+                    {n.label}
+                  </button>
+                ))}
+              </div>
+              <Button
+                size="md"
+                className="mt-4 mb-1 w-full"
+                onClick={() => go("#contact")}
+              >
+                Talk to our team
+              </Button>
             </nav>
           </motion.div>
         )}
