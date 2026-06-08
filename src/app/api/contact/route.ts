@@ -6,7 +6,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { first, last, email, company, revenue, type, challenge } = body;
+    const { first, last, email, company, revenue, industry, challenge } = body;
 
     if (!first || !last || !email || !company) {
       return NextResponse.json({ error: "Missing required fields." }, { status: 400 });
@@ -16,12 +16,12 @@ export async function POST(req: NextRequest) {
       from: "74 East Advisory <noreply@74east.com>",
       to: "karan@74east.com",
       replyTo: email,
-      subject: `New scope call request — ${first} ${last} at ${company}`,
+      subject: `New inquiry — ${first} ${last} at ${company}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #0a0e1a;">
           <div style="background: #0a1628; padding: 24px 32px; border-radius: 8px 8px 0 0;">
             <h1 style="color: #ffffff; font-size: 18px; margin: 0; font-weight: 600;">
-              New scope call request
+              New inquiry
             </h1>
             <p style="color: rgba(255,255,255,0.5); font-size: 13px; margin: 4px 0 0;">
               74 East Advisory — Contact Form
@@ -64,10 +64,10 @@ export async function POST(req: NextRequest) {
               </tr>
               <tr>
                 <td style="padding: 10px 0; border-bottom: 1px solid #f1f5f9;">
-                  <span style="font-size: 12px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.08em;">Revenue Type</span>
+                  <span style="font-size: 12px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.08em;">Industry</span>
                 </td>
                 <td style="padding: 10px 0; border-bottom: 1px solid #f1f5f9;">
-                  <span style="font-size: 15px; color: #0a0e1a;">${type || "Not specified"}</span>
+                  <span style="font-size: 15px; color: #0a0e1a;">${industry || "Not specified"}</span>
                 </td>
               </tr>
               <tr>
@@ -79,7 +79,7 @@ export async function POST(req: NextRequest) {
             </table>
 
             <div style="margin-top: 28px; padding-top: 20px; border-top: 1px solid #f1f5f9;">
-              <a href="mailto:${email}?subject=Re: Your 74 East Advisory scope call request&from=karan@74east.com"
+              <a href="mailto:${email}?subject=Re: Your 74 East Advisory inquiry&from=karan@74east.com"
                  style="display: inline-block; background: #0a1628; color: #ffffff; padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none;">
                 Reply to ${first}
               </a>

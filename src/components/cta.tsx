@@ -9,7 +9,7 @@ import { Input, Textarea, Select } from "@/components/ui/input";
 const bullets = [
   "No commitment required",
   "Response within one business day",
-  "Confidentiality guaranteed pre-engagement",
+  "Confidentiality guaranteed",
 ];
 
 export function Cta() {
@@ -26,7 +26,7 @@ export function Cta() {
       email:     fd.get("email"),
       company:   fd.get("company"),
       revenue:   fd.get("revenue"),
-      type:      fd.get("type"),
+      industry:  fd.get("industry"),
       challenge: fd.get("challenge"),
     };
 
@@ -51,16 +51,16 @@ export function Cta() {
           {/* Left */}
           <div className="lg:col-span-2">
             <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-fg-muted">
-              Get in touch
+              Contact
             </p>
             <h2 className="mt-4 text-4xl md:text-5xl font-bold leading-tight tracking-tight text-fg">
               Let&rsquo;s talk about{" "}
               <em className="font-medium">your finance function.</em>
             </h2>
             <p className="mt-5 text-[1rem] leading-relaxed text-fg-muted">
-              Every engagement starts with a scope call. We&rsquo;ll review your current
-              financial operations, tell you honestly whether we&rsquo;re the right fit,
-              and outline what the first 90 days look like for your business.
+              Every engagement starts with a conversation. We&rsquo;ll understand where you
+              are, what&rsquo;s holding your finance function back, and what the right path
+              forward looks like for your business.
             </p>
             <ul className="mt-8 space-y-3">
               {bullets.map((b) => (
@@ -142,34 +142,36 @@ export function Cta() {
                   </Field>
 
                   <Field label="Company name">
-                    <Input name="company" required placeholder="Johnson Freight LLC" />
+                    <Input name="company" required placeholder="Acme Co." />
                   </Field>
 
                   <div className="grid grid-cols-2 gap-4">
                     <Field label="Annual revenue">
                       <Select name="revenue" defaultValue="">
                         <option value="" disabled>Select range</option>
-                        <option>$10M – $25M</option>
-                        <option>$25M – $75M</option>
-                        <option>$75M – $150M</option>
-                        <option>$150M+</option>
+                        <option>Under $1M</option>
+                        <option>$1M – $5M</option>
+                        <option>$5M – $25M</option>
+                        <option>$25M+</option>
                       </Select>
                     </Field>
-                    <Field label="Revenue type">
-                      <Select name="type" defaultValue="">
-                        <option value="" disabled>Select type</option>
-                        <option>Asset-based truckload carrier</option>
-                        <option>3PL / freight brokerage</option>
-                        <option>Dispatch or agency</option>
-                        <option>Multi-entity (mixed)</option>
+                    <Field label="Industry">
+                      <Select name="industry" defaultValue="">
+                        <option value="" disabled>Select industry</option>
+                        <option>Professional Services</option>
+                        <option>Freight &amp; Logistics</option>
+                        <option>Manufacturing &amp; Distribution</option>
+                        <option>E-commerce</option>
+                        <option>Healthcare</option>
+                        <option>Other</option>
                       </Select>
                     </Field>
                   </div>
 
-                  <Field label="What is your biggest financial challenge right now?">
+                  <Field label="Biggest financial challenge">
                     <Textarea
                       name="challenge"
-                      placeholder="e.g. Books aren't closed monthly, no cash flow visibility, factoring reconciliation is a mess..."
+                      placeholder="e.g. Books aren't closed monthly, no cash flow visibility, reporting isn't board-ready..."
                     />
                   </Field>
 
@@ -182,12 +184,12 @@ export function Cta() {
                     {status === "loading" ? (
                       <><Loader2 className="size-4 animate-spin" /> Sending...</>
                     ) : (
-                      "Book a free scope call"
+                      "Talk to our team"
                     )}
                   </Button>
 
                   <p className="text-center text-xs text-fg-muted">
-                    Both parties reply to the same business day, usually within hours.
+                    We respond to every inquiry within one business day.
                   </p>
                 </motion.form>
               )}

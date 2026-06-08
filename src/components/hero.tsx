@@ -18,26 +18,24 @@ export function Hero() {
           {...up(0.05)}
           className="text-[11px] font-semibold tracking-[0.2em] uppercase text-fg-muted"
         >
-          — Fractional Controller &amp; Advisory Services &middot; US Freight &amp; Logistics
+          — Finance &amp; Accounting Partner &middot; Built for Growth-Focused Businesses
         </motion.p>
 
         <motion.h1
           {...up(0.12)}
           className="mt-6 max-w-3xl text-[2.75rem] sm:text-5xl md:text-6xl font-bold leading-[1.04] tracking-tight text-fg"
         >
-          The controller team built for{" "}
-          <em className="font-medium">serious freight operators.</em>
+          Accounting and finance, built around{" "}
+          <em className="font-medium">your growth.</em>
         </motion.h1>
 
         <motion.p
           {...up(0.2)}
           className="mt-7 max-w-xl text-[1.0625rem] leading-relaxed text-fg-muted"
         >
-          We provide fractional controller and financial advisory services to US
-          asset-based truckload carriers, 3PLs, brokerages, and dispatch agencies from
-          $10M in revenue and up. From monthly close and compliance to board-ready
-          reporting and long-term financial strategy — delivered by a senior team,
-          structured as a fractional engagement.
+          We provide accounting, bookkeeping, reporting, and financial advisory services
+          to growth-focused businesses — delivered by a dedicated team with the structure,
+          expertise, and technology to scale alongside you.
         </motion.p>
 
         <motion.div {...up(0.28)} className="mt-9 flex flex-wrap items-center gap-5">
@@ -47,7 +45,7 @@ export function Hero() {
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
             }
           >
-            Book a scope call
+            Talk to our team
           </Button>
           <button
             onClick={() =>

@@ -5,23 +5,23 @@ import { motion } from "framer-motion";
 const steps = [
   {
     n: "01",
-    title: "Scope call",
-    body: "We scope your current state — systems, close history, entity structure — and confirm fit before any engagement.",
+    title: "Conversation",
+    body: "We learn your business, your current financial state, and where you need to get to. You get an honest picture of fit and a clear outline of what working together looks like.",
   },
   {
     n: "02",
-    title: "Month 1: stabilise",
-    body: "We fix your core: QB cleanup, entity mapping, first clean close, and initial status tracking within 30 days.",
+    title: "Month 1: Stabilise",
+    body: "We establish the foundation: clean books, reconciled accounts, entity mapping, and your first structured close within 30 days.",
   },
   {
     n: "03",
-    title: "Month 2: accelerate",
-    body: "We broaden scope to cash flow forecasting, additional entities or services, onboarded to full monthly cadence.",
+    title: "Month 2: Accelerate",
+    body: "We expand scope: cash flow forecasting, management reporting, and any additional services brought into full monthly cadence.",
   },
   {
     n: "04",
-    title: "Ongoing: embedded",
-    body: "You have a named controller function. Monthly close, proactive advisory, and a team that knows your business.",
+    title: "Ongoing: Embedded",
+    body: "You have a dedicated finance function. Monthly close, proactive advisory, and a team that knows your business as well as you do.",
   },
 ];
 
@@ -55,13 +55,13 @@ export function HowItWorks() {
           <p className="relative text-[11px] font-semibold tracking-[0.2em] uppercase text-white/40">
             How we work
           </p>
-          <h2 className="relative mt-4 max-w-xl text-4xl md:text-5xl font-bold leading-tight tracking-tight text-white">
-            Structured from{" "}
-            <em className="font-medium text-blue-200">day one.</em>
+          <h2 className="relative mt-4 max-w-2xl text-4xl md:text-5xl font-bold leading-tight tracking-tight text-white">
+            Structured from day one.{" "}
+            <em className="font-medium text-blue-200">Embedded for the long term.</em>
           </h2>
           <p className="relative mt-5 max-w-lg text-[1rem] leading-relaxed text-white/55">
-            Every engagement follows a defined onboarding and delivery framework. No
-            ambiguity about who does what, when.
+            Every engagement follows a defined framework. No ambiguity about who does
+            what, when — and no ramp-up time wasted.
           </p>
 
           <div className="relative mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8">

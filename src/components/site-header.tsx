@@ -9,8 +9,8 @@ import { cn } from "@/lib/utils";
 
 const nav = [
   { href: "#why-us",       label: "Why 74 East" },
-  { href: "#services",     label: "Services" },
-  { href: "#how-it-works", label: "How we work" },
+  { href: "#services",     label: "What We Do" },
+  { href: "#how-it-works", label: "How We Work" },
   { href: "#contact",      label: "Contact" },
 ];
 
@@ -38,9 +38,12 @@ export function SiteHeader() {
         )}
       >
         <div className="mx-auto flex h-[68px] max-w-5xl items-center justify-between px-6 md:px-10">
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex flex-col leading-none">
             <span className="text-[1.0625rem] font-bold tracking-tight text-fg">
               74 East Advisory
+            </span>
+            <span className="hidden sm:block mt-1 text-[10px] tracking-[0.12em] uppercase text-fg-muted">
+              Finance &amp; Accounting Partner &middot; Growth-Focused Businesses
             </span>
           </Link>
 
@@ -58,7 +61,7 @@ export function SiteHeader() {
 
           <div className="flex items-center gap-3">
             <Button size="sm" onClick={() => go("#contact")}>
-              Book a call
+              Talk to our team
             </Button>
             <button
               className="md:hidden p-1 text-fg"

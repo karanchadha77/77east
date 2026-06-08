@@ -4,20 +4,20 @@ import { motion } from "framer-motion";
 
 const cards = [
   {
-    title: "Freight-native expertise",
-    body: "Factoring reconciliation, TMS-to-ERP matching, load and lane margin analysis, multi-entity carrier structure and carrier settlement. You won't spend time explaining your business to us.",
+    title: "Deep Expertise, Powered by Technology",
+    body: "A team of domain experts leveraging advanced technology to deliver efficient accounting, bookkeeping, and finance solutions for businesses of every size. The result is a seamless blend of human expertise and technology — helping businesses scale with smarter financial management, reporting, and compliance systems.",
   },
   {
-    title: "A dedicated team per engagement",
-    body: "Every client gets a named senior lead and a supporting analyst team. Not a solo contractor. A structured, accountable team with defined roles — junior analyst, senior controller, client lead.",
+    title: "A Dedicated Team, Not a Solo Contractor",
+    body: "Every engagement has a named lead and a supporting analyst team. Defined roles, clear accountability, no single point of failure — so your finance function never depends on one person.",
   },
   {
-    title: "Senior expertise, structured as a fraction",
-    body: "The calibre of oversight you'd get from a senior in-house controller — delivered as a fractional engagement, scaled to the scope your business actually needs. You pay for a defined function, not a full-time seat.",
+    title: "Cross-Industry Experience That Adapts to You",
+    body: "Our accounting and finance consulting services are backed by years of cross-industry experience. From startups to well-established corporations, we adapt to your evolving requirements — delivering the financial clarity your business needs to move forward.",
   },
   {
-    title: "Process-first, not reactive",
-    body: "Every engagement runs on a defined cadence — daily transaction review, weekly operating reports, Day 10 monthly close, quarterly board package. Documented, repeatable, and auditable — so you always know where you stand.",
+    title: "Built to Scale With Your Business",
+    body: "Our engagement model expands as you do. Add entities, add services, add reporting layers — without rebuilding the relationship from scratch. You grow; we grow with you.",
   },
 ];
 
@@ -29,15 +29,9 @@ export function WhyUs() {
           Why 74 East
         </p>
         <h2 className="mt-4 max-w-2xl text-4xl md:text-5xl font-bold leading-tight tracking-tight text-fg">
-          We only work with{" "}
-          <em className="font-medium">freight &amp; logistics.</em>
+          Why growth-focused businesses{" "}
+          <em className="font-medium">work with us</em>
         </h2>
-        <p className="mt-5 max-w-xl text-[1.0625rem] leading-relaxed text-fg-muted">
-          Most controller firms treat freight as just another vertical. We built our
-          entire practice around it — asset-based carriers, 3PLs, brokerages, and
-          dispatch agencies — which means we already know what your books should look
-          like before we open them.
-        </p>
 
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-5">
           {cards.map((c, i) => (

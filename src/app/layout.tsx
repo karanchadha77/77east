@@ -17,9 +17,9 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  title: "74 East Advisory — Fractional controller & advisory services for US freight & logistics",
+  title: "74 East Advisory — Finance & Accounting Partner for Growth-Focused Businesses",
   description:
-    "Fractional controller and financial advisory services for US asset-based truckload carriers, 3PLs, brokerages, and dispatch agencies from $10M in revenue — monthly close, compliance, board-ready reporting, and long-term financial strategy.",
+    "74 East Advisory provides accounting, bookkeeping, reporting, and financial advisory services to growth-focused businesses — delivered by a dedicated team with the structure and expertise your business needs to scale.",
 };
 
 export default function RootLayout({
